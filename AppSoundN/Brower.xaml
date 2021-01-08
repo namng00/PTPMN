@@ -1,0 +1,302 @@
+﻿<UserControl x:Class="AppSoundN.Brower"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppSoundN"
+             mc:Ignorable="d" 
+             Height="980" Width="1720">
+    <Grid Background="White" x:Name="layoutBrower">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" CanContentScroll="True">
+            <StackPanel Orientation="Vertical" 
+                    Height="980" 
+                    Width="1720" 
+                    Margin="0 0 0 0">
+                <StackPanel Height="280">
+                    <!--2.2.1-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock 
+                        Text="Instrument"
+                        FontWeight="Bold" 
+                        FontSize="30">
+                        </TextBlock>
+                        <Button Margin="0 9 0 0"
+                                x:Name="btnViewAll"
+                                Click="btnViewAll1_Click"
+                            Background="Transparent" 
+                            VerticalAlignment="Bottom" 
+                            BorderThickness="0" 
+                            Content="View all" 
+                            Foreground="Blue" 
+                            FontSize="16" ></Button>
+                        
+                    </StackPanel>
+                    <!--2.2.2-->
+                    <StackPanel  Orientation="Horizontal" >
+                        <TextBlock Foreground="Gray"  Text="Try any demo free, then pay-as-you go until you own it."></TextBlock>
+                    </StackPanel >
+                    <!--2.2.3-->
+                    <StackPanel Orientation="Horizontal" 
+                            Margin="0 10 0 0">
+                        <ListView x:Name="listInstrument"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  Width="1630"
+                                  ItemsSource="{Binding SanPham}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ItemSp Margin="3 0 10 0"></local:ItemSp>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Height="280" 
+                        Margin="0 15 0 0">
+                    <!--2.3.1-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Effects"
+                               FontWeight="Bold" 
+                               FontSize="30">
+                        </TextBlock>
+                        <Button Margin="0 9 0 0" 
+                                x:Name="btnViewAll1"
+                                Click="btnViewAll1_Click"
+                            Background="Transparent" 
+                            VerticalAlignment="Bottom" 
+                            BorderThickness="0" 
+                            Content="View all" 
+                            Foreground="Blue" 
+                            FontSize="16" ></Button>
+                    </StackPanel>
+                    <!--2.3.2-->
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Foreground="Gray"  
+                               Text="Try any demo free, then pay-as-you go until you own it."></TextBlock>
+                    </StackPanel >
+                    <!--2.3.3-->
+                    <StackPanel Orientation="Horizontal" 
+                            Margin="0 10 0 0">
+                        <ListView x:Name="listEffect"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  Width="1630"
+                                  ItemsSource="{Binding SanPham}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ItemSp Margin="3 0 10 0"></local:ItemSp>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel  Height="280"
+                         Margin="0 15 0 0">
+                    <!--2.4.1-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="For Sale"
+                               FontWeight="Bold" 
+                               FontSize="30">
+                        </TextBlock>
+                        <Button Margin="0 6 0 0" 
+                                x:Name="btnViewAll2"
+                                Click="btnViewAll1_Click"
+                            Background="Transparent" 
+                            VerticalAlignment="Bottom" 
+                            BorderThickness="0" 
+                            Content="View all" 
+                            Foreground="Blue" 
+                            FontSize="16" ></Button>
+                    </StackPanel>
+                    <!--2.4.2-->
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Foreground="Gray"  
+                               Text="Try any demo free, then pay-as-you go until you own it."></TextBlock>
+
+                    </StackPanel >
+                    <!--2.4.3-->
+                    <StackPanel Orientation="Horizontal" 
+                            Margin="0 10 0 0">
+                        <ListView x:Name="listSale"
+                                 ItemsSource="{Binding SanPham}"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  Width="1630"
+                                  >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                
+                                <DataTemplate>
+                                    <local:ItemSp Margin="3 0 10 0"></local:ItemSp>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel  Height="280" 
+                         Margin="0 15 0 0">
+                    <!--2.4.1-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Free Plugin"
+                               FontWeight="Bold" 
+                               FontSize="30">
+                        </TextBlock>
+                        <Button Margin="0 6 0 0" 
+                                x:Name="btnViewAll3"
+                                Click="btnViewAll1_Click"
+                            Background="Transparent" 
+                            VerticalAlignment="Bottom" 
+                            BorderThickness="0" 
+                            Content="View all" 
+                            Foreground="Blue"
+                            FontSize="16" ></Button>
+                    </StackPanel>
+                    <!--2.4.2-->
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Foreground="Gray" 
+                               Text="Try any demo free, then pay-as-you go until you own it."></TextBlock>
+                    </StackPanel >
+                    <!--2.4.3-->
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <ListView x:Name="listFree"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  Width="1630"
+                                  ItemsSource="{Binding SanPham}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ItemSp Margin="3 0 10 0"></local:ItemSp>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel  Height="280" Margin="0 15 0 0">
+                    <!--2.4.1-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DAW"
+                               FontWeight="Bold" 
+                               FontSize="30">
+                        </TextBlock>
+                        <Button Margin="0 9 0 0" 
+                                x:Name="btnViewAll4"
+                                Click="btnViewAll1_Click"
+                            Background="Transparent" 
+                            VerticalAlignment="Bottom" 
+                            BorderThickness="0" 
+                            Content="View all" 
+                            Foreground="Blue" 
+                            FontSize="16" ></Button>
+                    </StackPanel>
+                    <!--2.4.2-->
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Foreground="Gray"  
+                               Text="Try any demo free, then pay-as-you go until you own it."></TextBlock>
+                    </StackPanel >
+                    <!--2.4.3-->
+                    <StackPanel Orientation="Horizontal" 
+                            Margin="0 10 0 0">
+                        <ListView x:Name="listDAW"
+                                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                                  Width="1630"
+                                  ItemsSource="{Binding SanPham}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Setter Property="Background"
+                                            Value="Transparent" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                                <ContentPresenter />
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:ItemSp Margin="3 0 10 0"></local:ItemSp>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"></StackPanel>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+            
+        
+
+    </Grid>
+</UserControl>

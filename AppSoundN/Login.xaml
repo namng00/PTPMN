@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="AppSoundN.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:AppSoundN"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="Login1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background >
+            <ImageBrush ImageSource="Image/backgroundlogin.PNG" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel Grid.ColumnSpan="2" Margin="0,0,0,-0.4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>  
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="0 180 0 0" 
+                               Foreground="#444"
+                               HorizontalAlignment="Center" 
+                               FontSize="35" 
+                               Text="Sign in" 
+                               Grid.Column="1"
+                               FontFamily="Segoe UI Black" 
+                               FontWeight="Bold">
+
+                </TextBlock>
+              
+                <Border
+                    Grid.Column="1" 
+                    Margin="0 30 0 0"
+                    Grid.Row="1"
+                    CornerRadius="20"
+                    Width="350"
+                    Height="70"
+                    Background="#F4F8F7">
+                    <Grid Height="auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="85*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="Email"
+                                                     Width="20"
+                                                     Height="20"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="Gray" />
+                        <TextBox Grid.Column="1"
+                                     Height="40"
+                                     FontSize="18"
+                                     Padding="0 3 0 0"
+                                     x:Name="tbEmail"
+                                     FontFamily="Avenir LT Std 65 Medium"
+                                     materialDesign:HintAssist.Hint="Email"
+                                     materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                     materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                     VerticalAlignment="Center"
+                                     TextAlignment="Left"
+                                     BorderThickness="0" />
+                    </Grid>
+                </Border>
+                <Border
+                    Grid.Column="1" 
+                    Margin="0 20 0 0"
+                    Grid.Row="2"
+                    CornerRadius="20"
+                    Width="350"
+                    Height="70"
+                    Background="#F4F8F7">
+                    <Grid Height="auto">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"></ColumnDefinition>
+                            <ColumnDefinition Width="85*" />
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="Key"
+                                                     Width="20"
+                                                     Height="20"
+                                                     HorizontalAlignment="Center"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="Gray" />
+                        <PasswordBox Grid.Column="1"
+                                         FontSize="18"
+                                         Padding="0 2 0 3.8"
+                                         Height="40"
+                                         x:Name="tbPassword"
+                                         FontFamily="Avenir LT Std 65 Medium"
+                                         materialDesign:HintAssist.Hint="Password"
+                                         materialDesign:TextFieldAssist.UnderlineCornerRadius="2"
+                                         materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                         materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                                         VerticalAlignment="Center"
+                                         BorderThickness="0" />
+                    </Grid>
+                </Border>
+                <Button Grid.Column="1" Grid.Row="4" Click="btnLogin_Click" Content="Login" 
+                            Margin="125,40,125,-0.2" 
+                            Height="45" 
+                            Width="150" 
+                            
+                            materialDesign:ShadowAssist.ShadowEdges="All"
+                            materialDesign:ButtonAssist.CornerRadius="25"
+                            FontFamily="Berlin Sans FB"
+                            FontSize="18" VerticalAlignment="Top">
+                    <Button.Background>
+                        <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4481eb" Offset="0"/>
+                            <GradientStop Color="#04befe" Offset="1.5"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Grid Grid.Column="1" Grid.Row="5" Margin="80 30 0 0">
+
+                    <Button x:Name="tbForgetPass"
+                            Command="{x:Static materialDesign:Transitioner.MoveLastCommand }"
+                               Content="Forgot password?"
+                               Cursor="Hand"
+                               FontSize="14"
+                               Background="Transparent"
+                               BorderBrush="Transparent"
+                               BorderThickness="0"
+                               Margin="0,0,120,0"
+                               FontStyle="Italic"
+                               FontFamily="roboto"
+                               Foreground="DodgerBlue"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Right" />
+                </Grid>
+                <Button     Command="{x:Static materialDesign:Transitioner.MoveNextCommand }"
+                            Content="Sign up" 
+                            Margin="0 60 0 0" 
+                            Height="45" 
+                            Width="150" 
+                            materialDesign:ButtonAssist.CornerRadius="25"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                            materialDesign:ShadowAssist.ShadowEdges="All"
+                            FontFamily="Berlin Sans FB"
+                            FontSize="18">
+                    <Button.Background>
+                        <LinearGradientBrush  StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#4481eb" Offset="0"/>
+                            <GradientStop Color="#04befe" Offset="1.5"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

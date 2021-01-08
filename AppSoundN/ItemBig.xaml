@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="AppSoundN.ItemBig"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Name="itemBig"
+             xmlns:local="clr-namespace:AppSoundN"
+             mc:Ignorable="d" 
+             Height="980" Width="1720">
+
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical">
+            <Grid>
+                
+                <Border HorizontalAlignment="Center" Width="1000" Margin="0,50,0,0" Height="70" BorderThickness="1" BorderBrush="Gray" Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 10 0"
+                                   FontWeight="Bold" 
+                                   Foreground="Black"
+                                   Text="TYPE"></TextBlock>
+                        <Button x:Name="btnDaw"
+                                Content="DAW"
+                                Click="btnDaw_Click"
+                                Background="Transparent"
+                                Margin="0 0 6 0"
+                                BorderBrush="Gray"
+                                Foreground="Gray"></Button>
+                        <Button Content="Instruments"
+                                x:Name="btnInstruments"
+                                Click="btnInstruments_Click"
+                                Margin="0 0 6 0"
+                                BorderBrush="Gray"
+                                Background="Transparent"
+                                Foreground="Gray"></Button>
+                        <Button Content="Effects"
+                                x:Name="btnEffects"
+                                Click="btnEffects_Click"
+                                Margin="0 0 6 0"
+                                BorderBrush="Gray"
+                                Background="Transparent"
+                                Foreground="Gray"></Button>
+                        <TextBlock Text="Price"
+                                   FontSize="16"
+                                   VerticalAlignment="Center"
+                                   Margin="10 0 10 0"
+                                   FontWeight="Bold" 
+                                   Foreground="Black"></TextBlock>
+                        <Button Content="Free"
+                                x:Name="btnFree"
+                                Click="btnFree_Click"
+                                Margin="0 0 6 0"
+                                BorderBrush="Gray"
+                                Background="Transparent"
+                                Foreground="Gray"></Button>
+                        <Button Content="Sale"
+                                Margin="0 0 6 0"
+                                x:Name="btnSale"
+                                Click="btnSale_Click"
+                                BorderBrush="Gray"
+                                Background="Transparent"
+                                Foreground="Gray"></Button>
+
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+            <StackPanel Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Width="446" 
+                           Height="1" 
+                           Margin="0 0 10 0" 
+                           Background="Gray"></TextBlock>
+                <TextBlock Text="{Binding Theloai}" 
+                           Foreground="Black"></TextBlock>
+                <TextBlock Text="{Binding Count,ElementName=itemBig}" 
+                           Foreground="Gray"></TextBlock>
+                <TextBlock Text=" RESULTS" 
+                           Foreground="Gray"></TextBlock>
+                <TextBlock Width="446" 
+                           Background="Gray" 
+                           Height="1" 
+                           Margin="10 0 0 0"></TextBlock>
+            </StackPanel>
+            <WrapPanel  Width="980" Orientation="Horizontal">
+                 <ListView x:Name="listCustom"  Width="980" Margin="0 30 0 0"
+                                  ItemsSource="{Binding SanPham}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Background"
+                                            Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:ItemSp Margin="0 10 15 0"></local:ItemSp>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Width="980" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </WrapPanel>
+           
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="AppSoundN.InfoHangSx"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppSoundN"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Width="1000"  Height="800"
+             >
+    <Grid >
+        <StackPanel Orientation="Vertical" Background="Black" Width="1000" VerticalAlignment="Top" Height="auto" Margin="0 0 0 0">
+             <StackPanel Orientation="Vertical"   >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Width="130"
+                            Height="130"
+                            Grid.Column="0"
+                            Margin="0 0 0 0"
+                            CornerRadius="20">
+                        <Border.Background>
+                            <ImageBrush  ImageSource="{Binding ImageHang}"             
+                                   Stretch="UniformToFill" />
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="0 0 0 0">
+                        <TextBlock FontSize="40" 
+                                   Foreground="#ffff" 
+                                   FontWeight="Bold" 
+                                   Margin="0 15 0 0" 
+                                   Text="{Binding Tenhang}"></TextBlock>
+                        <TextBlock Margin="0 10 0 0" 
+                                   Height="auto" 
+                                   Width="700" 
+                                   HorizontalAlignment="Left" 
+                                   Foreground="White" 
+                                   TextWrapping="Wrap" 
+                                   FontSize="16" 
+                                   Text="{Binding Thongtinhang}"></TextBlock>
+                        <TextBlock Width="200" 
+                                   Text="Website" 
+                                   Foreground="Gray" 
+                                   Margin="0 10 0 50" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Top" >
+                            <WebBrowser Width="200" HorizontalAlignment="Left"   
+                                x:Name="btnWebsize"
+                                Margin="0 0 0 0" Height="50"
+                                    materialDesign:ButtonAssist.CornerRadius="19"
+                                    ></WebBrowser>
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+                <WrapPanel  Orientation="Horizontal" Height="auto" Margin="0 20 0 0" Background="White">
+                    <ListView x:Name="listCustom"  Width="980" Margin="0 30 0 0"
+                                  ItemsSource="{Binding SanPham}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Setter Property="Background"
+                                            Value="Transparent" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <ContentPresenter />
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <local:ItemSp Margin="0 10 15 0"></local:ItemSp>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Width="980" />
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
